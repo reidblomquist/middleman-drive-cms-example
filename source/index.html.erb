@@ -5,12 +5,17 @@ title: Simple Google Drive CMS w/ Middleman
 <h2>A free API example</h2>
 <% data.Sheet1.each do |row| %>
   <div class="post <%= row.type.downcase %>">
-  <%# <% require 'pry'; binding.pry %>
-  <div class="post__head" style="<%= row.image ? "background: url('images/#{row.image}') no-repeat; background-size: cover;" : "" %>">
-      <h3><%= row.title %></h3>
-      <%# <% if row.image %>
-      <%#   <%= image_tag "#{row.image}", :class => "post__head-image" %>
-      <%# <% end %>
+  <div class="post__head page-header" style="<%= row.image ? "background: url('images/#{row.image}') no-repeat; background-size: cover;" : "" %>">
+    <h3><%= row.title %></h3>
+  </div>
+  <div class="post__body well">
+    <% if row.image %>
+      <div class="post__body-image">
+        <%= image_tag "#{row.image}", :class => "img-thumbnail" %>
+      </div>
+    <% end %>
+    <div class="post__body-copy">
+      <p><%= row.body %></p>
     </div>
-    <p><%= row.body %></p>
+  </div>
 <% end %>
