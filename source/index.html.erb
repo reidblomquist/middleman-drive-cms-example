@@ -1,0 +1,9 @@
+---
+title: Welcome to Middleman
+---
+<h1>Simple Google Drive CMS Example</h1>
+<%# <% require 'pry'; binding.pry %>
+<% data.Sheet1.each do |row| %>
+    Column one header: <%= row.Title %>
+    Column two header: <%= row.Body %>
+<% end %>
