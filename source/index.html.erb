@@ -1,9 +1,16 @@
 ---
-title: Welcome to Middleman
+title: Simple Google Drive CMS w/ Middleman
 ---
-<h1>Simple Google Drive CMS Example</h1>
-<%# <% require 'pry'; binding.pry %>
+<h1>Middleman w/ Google Drive</h1>
+<h2>A free API example</h2>
 <% data.Sheet1.each do |row| %>
-    Column one header: <%= row.Title %>
-    Column two header: <%= row.Body %>
+  <div class="post <%= row.type.downcase %>">
+  <%# <% require 'pry'; binding.pry %>
+  <div class="post__head" style="<%= row.image ? "background: url('images/#{row.image}') no-repeat; background-size: cover;" : "" %>">
+      <h3><%= row.title %></h3>
+      <%# <% if row.image %>
+      <%#   <%= image_tag "#{row.image}", :class => "post__head-image" %>
+      <%# <% end %>
+    </div>
+    <p><%= row.body %></p>
 <% end %>
